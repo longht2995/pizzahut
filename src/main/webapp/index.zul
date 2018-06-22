@@ -1,0 +1,28 @@
+<zk>
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('greenglobal.pizzahut.MyViewModel')"
+		validationMessages="@id('vmsgs')" width="600px" vflex="1">
+		<vlayout>
+			<hbox align="center" hflex="1">
+				<combobox model="@load(vm.pizzaSizeList)" value="@bind(vm.pizzaSize.name)" selectedItem="@bind(vm.pizzaSize)">
+					<template name="model">
+						<comboitem label="@load(each.name)"></comboitem>
+					</template>
+				</combobox>
+			</hbox>
+		</vlayout>
+			<forEach items="@load(vm.categoryList)" varStatus="stt">
+				<button label="@load(each.name)" onClick="@command('setCategory',index = each)"></button>
+			</forEach>
+			
+			<listbox model="@load(vm.materialList)">
+				<template name="model">
+					<listitem>
+						<listcell label="@load(each.id)"></listcell>	
+						<listcell label="@load(each.name)"></listcell>
+						<listcell label="@load(each.price)"></listcell>
+					</listitem>
+				</template>
+			</listbox>
+	</window>
+</zk>

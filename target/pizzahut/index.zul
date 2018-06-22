@@ -1,0 +1,18 @@
+<zk>
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('greenglobal.pizzahut.MyViewModel')"
+		validationMessages="@id('vmsgs')" width="600px" vflex="1">
+		<vlayout>
+			<hbox align="center" hflex="1">
+				<combobox model="@load(vm.pizzaSizeList)">
+					<template name="model">
+						<comboitem label="@load(each.name)"></comboitem>
+					</template>
+				</combobox>
+			</hbox>
+			<hbox>
+			s
+			</hbox>
+		</vlayout>
+	</window>
+</zk>
